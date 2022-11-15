@@ -7,3 +7,22 @@ Content-Type:  application/json
     "email": "eymen@gmail.com",
     "password": "pass123"
 }
+
+### Find particular User with a given ID
+
+GET http://localhost:3000/auth/3
+
+### Find particular User with a given email
+GET http://localhost:3000/auth?email=eymen@gmail.com
+
+### Delete particular User with a given ID
+DELETE http://localhost:3000/auth/2
+
+### Update particular User with a given ID
+
+PATCH http://localhost:3000/auth/1
+Content-Type: application/json
+
+{
+    "password": "pas123"
+}
