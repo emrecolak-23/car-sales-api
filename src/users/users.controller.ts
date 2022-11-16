@@ -8,6 +8,7 @@ import { Serialize } from 'src/interceptors/serialize.interceptor';
 
 import { UserDto } from './dtos/user.dto';
 
+@Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
 
@@ -19,7 +20,6 @@ export class UsersController {
     }
 
     // @UseInterceptors(new SerializeInterceptor(UserDto))
-    @Serialize(UserDto)
     @Get('/:id')
     async findUser(@Param('id') id: string) {
         console.log('Handler is running...')
