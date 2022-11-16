@@ -7,7 +7,12 @@ import {
 
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { plainToClass } from 'class-transformer'
+import { plainToClass, plainToInstance } from 'class-transformer'
+
+
+export function Serialize(dto: any) {
+    return UseInterceptors(new SerializeInterceptor(dto))
+}
 
 export class SerializeInterceptor implements NestInterceptor {
 
@@ -23,7 +28,7 @@ export class SerializeInterceptor implements NestInterceptor {
                 // Run something before response is sent out
                 // console.log('Im running before response is sent out', data)
 
-                return plainToClass(this.dto, data, {
+                return plainToInstance(this.dto, data, {
                     excludeExtraneousValues: true
                 })
             })
