@@ -26,3 +26,9 @@ Content-Type: application/json
 {
     "password": "pas123"
 }
+
+### Set color
+GET http://localhost:3000/auth/colors/blue
+
+### Get Colors
+GET http://localhost:3000/auth/colors
