@@ -22,6 +22,11 @@ export class UsersController {
         return this.authService.signup(dto.email, dto.password)
     }
 
+    @Post('/signin')
+    login(@Body() dto: CreateUserDto) {
+        return this.authService.signin(dto.email, dto.password)
+    }
+
     // @UseInterceptors(new SerializeInterceptor(UserDto))
     @Get('/:id')
     async findUser(@Param('id') id: string) {
