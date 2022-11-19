@@ -66,4 +66,13 @@ describe( 'AuthService', () => {
         ).rejects.toThrow(BadRequestException);
     });
     
+
+    it('returns a user if correct password is provided', async () => {
+        fakeUsersService.find = () => Promise.resolve([{email: 'test@test.com', password: 'ab27dd9726d785a8.5719260f2b46c0a892004c7cd2ff05bd8224f372a1f199ec70f3a307c829f84d'} as User])
+        const user = await service.signin('test@test.com', 'pass123')
+        expect(user).toBeDefined()
+
+   
+    })
+
 })
