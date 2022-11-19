@@ -9,6 +9,8 @@ import { Serialize } from 'src/interceptors/serialize.interceptor';
 
 import { UserDto } from './dtos/user.dto';
 
+import { CurrentUser } from './decorators/current-user.decorator';
+
 @Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
@@ -25,9 +27,14 @@ export class UsersController {
         return user
     }
 
+    // @Get('/whoami')
+    // whoAmI(@Session() session: any) {
+    //     return this.userService.findOne(session.userId)
+    // }
+
     @Get('/whoami')
-    whoami(@Session() session: any) {
-        return this.userService.findOne(session.userId)
+    whoAmI(@CurrentUser() user: string) {
+        return user
     }
 
     @Post('/signout')
