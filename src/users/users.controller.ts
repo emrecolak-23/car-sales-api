@@ -18,24 +18,20 @@ export class UsersController {
         private userService: UsersService) {}
 
 
-    @Get('/colors/:color')
-    setColor(@Param('color') color: string, @Session() session: any) {
-        session.color = color
-    }
-
-    @Get('/colors')
-    getColors(@Session() session: any) {
-        return session.color
-    }
-
     @Post('/signup')
-    createUser(@Body() dto: CreateUserDto) {
-        return this.authService.signup(dto.email, dto.password)
+    async createUser(@Body() dto: CreateUserDto, @Session() session: any) {
+        const user = await this.authService.signup(dto.email, dto.password)
+        session.userId = user.id
+        return user
     }
 
     @Post('/signin')
-    login(@Body() dto: CreateUserDto) {
-        return this.authService.signin(dto.email, dto.password)
+    async login(@Body() dto: CreateUserDto, @Session() session: any) {
+        const user = await this.authService.signin(dto.email, dto.password)
+
+        session.userId = user.id
+
+        return user
     }
 
     // @UseInterceptors(new SerializeInterceptor(UserDto))
