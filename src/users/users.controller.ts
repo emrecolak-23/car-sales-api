@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param, Patch, Query, Delete, NotFoundException, Session, UseInterceptors } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Patch, Query, Delete, NotFoundException, Session } from '@nestjs/common';
 
 import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
@@ -10,11 +10,9 @@ import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { UserDto } from './dtos/user.dto';
 
 import { CurrentUser } from './decorators/current-user.decorator';
-import { CurrentUserInterceptor } from './interceptors/current-user.interceptor';
 
 import { User } from './user.entity';
 
-@UseInterceptors(CurrentUserInterceptor)
 @Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
