@@ -25,6 +25,11 @@ export class UsersController {
         return user
     }
 
+    @Get('/whoami')
+    whoami(@Session() session: any) {
+        return this.userService.findOne(session.userId)
+    }
+
     @Post('/signin')
     async login(@Body() dto: CreateUserDto, @Session() session: any) {
         const user = await this.authService.signin(dto.email, dto.password)

@@ -18,6 +18,10 @@ Content-Type:  application/json
     "password": "pass123"
 }
 
+### Get a signed user 
+
+GET http://localhost:3000/auth/whoami
+
 ### Find particular User with a given ID
 
 GET http://localhost:3000/auth/1
