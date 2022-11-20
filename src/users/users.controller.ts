@@ -15,6 +15,7 @@ import { User } from './user.entity';
 
 import { AuthGuard } from './guards/auth.guard';
 
+
 @Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
