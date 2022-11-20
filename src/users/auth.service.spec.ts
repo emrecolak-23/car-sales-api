@@ -3,6 +3,7 @@ import { AuthService } from "./auth.service";
 import { User } from "./user.entity";
 import { UsersService } from "./users.service";
 import { BadRequestException,NotFoundException } from '@nestjs/common';
+import { clear } from "console";
 
 describe( 'AuthService', () => {
 
