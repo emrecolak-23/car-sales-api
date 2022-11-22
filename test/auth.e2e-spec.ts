@@ -19,7 +19,7 @@ describe('Authentication System', () => {
   });
 
   it('it handles signup request', () => {
-    const email = 'emremco6161@gmail.com'
+    const email = 'test6@gmail.com'
     return request(app.getHttpServer())
      .post('/auth/signup')
      .send({email, password: 'pass123'})
