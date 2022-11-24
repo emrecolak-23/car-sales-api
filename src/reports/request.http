@@ -1,0 +1,14 @@
+### Create a report
+
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+    "make": "Chevrolet",
+    "model": "Camaro",
+    "year": 1980,
+    "mileage": 100000,
+    "lng": 0,
+    "lat": 0,
+    "price": 1000000   
+}
