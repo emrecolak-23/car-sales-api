@@ -8,6 +8,9 @@ export class ReportDto {
     id: number
 
     @Expose()
+    approved: boolean
+
+    @Expose()
     make: string
 
     @Expose()
