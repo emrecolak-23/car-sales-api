@@ -10,12 +10,17 @@ import { CurrentUser } from 'src/users/decorators/current-user.decorator';
 
 import { User } from 'src/users/user.entity';
 
+import { Serialize } from 'src/interceptors/serialize.interceptor';
+
+import { ReportDto } from './dtos/report.dto';
+
 @Controller('reports')
 export class ReportsController {
 
     constructor(private reportsService: ReportsService) {}
 
     @Post()
+    @Serialize(ReportDto)
     @UseGuards(AuthGuard)
     createReport(@Body() dto: CreateReportDto, @CurrentUser() user: User) {
         return this.reportsService.create(dto, user)
