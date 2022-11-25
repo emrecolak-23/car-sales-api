@@ -19,7 +19,7 @@ export function Serialize(dto: ClassConstructor) {
 
 export class SerializeInterceptor implements NestInterceptor {
 
-    constructor(private dto: any){}
+    constructor(private dto: any) {}
  
     intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
         // run something before a request is handled
