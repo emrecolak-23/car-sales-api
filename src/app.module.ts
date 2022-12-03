@@ -7,7 +7,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 
-const ORMConfig = require('../ormconfig')
+const dbConfig = require('../ormconfig')
 import { User } from './users/user.entity';
 import { Report } from './reports/report.entity'
 
@@ -19,7 +19,7 @@ const cookieSession = require('cookie-session')
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`
     }),
-    TypeOrmModule.forRoot(ORMConfig),
+    TypeOrmModule.forRoot(dbConfig),
     // TypeOrmModule.forRootAsync({
     //   inject: [ConfigService],
     //   useFactory: (config: ConfigService) => {
